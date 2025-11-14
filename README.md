@@ -24,13 +24,13 @@ All scripts assume you export a few variables first (adapt these to your env):
 
 ```bash
 export SUBSCRIPTION_ID="xxxx-xxxx-xxxx"
-export RESOURCE_GROUP="gr-portalxm-prb-01"
-export AKS_NAME="aks-portalxm-prb-01"
-export KV_NAME="kv-portalxm-prb-01"
-export NAMESPACE="ns-portalxmdrupal"
+export RESOURCE_GROUP="gr-front-app-prb-01"
+export AKS_NAME="aks-front-app-prb-01"
+export KV_NAME="kv-front-app-prb-01"
+export NAMESPACE="ns-front-app"
 export IDENTITY_NAME="id-portaldrupalxm-prb-01"
-export FEDERATED_CREDENTIAL_NAME="fc-portalxm-portaldrupalxm-prb-01"
-export DOMAIN_NAME="portalxm-prb.xm.com.co"
+export FEDERATED_CREDENTIAL_NAME="fc-front-app-portaldrupalxm-prb-01"
+export DOMAIN_NAME="front-app-prb.xm.com.co"
 🚀 Quick Deployment Flow
 This is the happy-path to get storage + ingress + TLS working using this repo.
 
@@ -102,7 +102,7 @@ kubectl get ingress -n $NAMESPACE
 kubectl describe ingress drupal-ingress -n $NAMESPACE
 
 # Check cert wired to secret
-kubectl get secret drupal-portalxmprb-tls -n $NAMESPACE \
+kubectl get secret drupal-front-appprb-tls -n $NAMESPACE \
   -o jsonpath='{.data.tls\.crt}' | base64 -d | openssl x509 -noout -text \
   | egrep 'Subject:|Issuer:|Not Before|Not After'
 That’s it — with these bits in the README you have:
