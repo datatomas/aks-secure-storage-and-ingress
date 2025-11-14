@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: drupal-service
-  namespace: ns-portalxmdrupal
+  name: front-app-service
+  namespace: ns-portalfront-app
 spec:
   selector:
-    app: drupal        # 👈 matches pod label
+    app: front-app        # 👈 matches pod label
   ports:
   - port: 80           # Service port
-    targetPort: 80     # Container port (change if your Drupal listens on another port)
+    targetPort: 80     # Container port (change if your front-app listens on another port)
     protocol: TCP
   type: ClusterIP
