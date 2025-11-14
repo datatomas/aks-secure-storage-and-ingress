@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: drupal-ingress
+  namespace: ns-portalxmdrupal
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - portalxm-prb.xm.com.co
+    secretName: drupal-portalxmprb-tls
+  rules:
+  - host: portalxm-prb.xm.com.co
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: drupal-service
+            port:
+              number: 80
