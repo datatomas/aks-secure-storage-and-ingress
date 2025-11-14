@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: dns-test
-  namespace: ns-portalxmdrupal
+  namespace: ns-portalfront-app
 spec:
   containers:
   - name: dns-test
