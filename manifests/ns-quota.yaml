@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: drupal-frontend-quota
-  namespace: ns-portalxmdrupal
+  name: frontend-quota
+  namespace: ns-portalxm
 spec:
   hard:
     requests.cpu: "900m"
@@ -15,8 +15,8 @@ spec:
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: drupal-defaults
-  namespace: ns-portalxmdrupal
+  name: defaults
+  namespace: ns-portalxm
 spec:
   limits:
   - type: Container
