@@ -1,7 +1,7 @@
-RG="GR_PORTALXM-PRB-01"
-AKS="aks-portalxm-prb-01"
-NS="drupal-frontend"
-UAMI_NAME="aks-portalxm-prb-01-agentpool"       # or your dedicated UAMI
+RG="GR_PORTAL-PRB-01"
+AKS="aks-portal-prb-01"
+NS="frontend"
+UAMI_NAME="aks-portal-prb-01-agentpool"       # or your dedicated UAMI
 
 CLIENT_ID=$(az identity show -g "$RG" -n "$UAMI_NAME" --query clientId -o tsv)
 ISSUER=$(az aks show -g "$RG" -n "$AKS" --query 'oidcIssuerProfile.issuerUrl' -o tsv)
@@ -10,11 +10,11 @@ ISSUER=$(az aks show -g "$RG" -n "$AKS" --query 'oidcIssuerProfile.issuerUrl' -o
 kubectl apply -f serviceaccount.yaml
 
 az identity federated-credential create \
-  --name drupal-frontend-federation \
+  --name frontend-federation \
   --identity-name "$UAMI_NAME" \
   --resource-group "$RG" \
   --issuer "$ISSUER" \
-  --subject "system:serviceaccount:$NS:drupal-frontend-sa"
+  --subject "system:serviceaccount:$NS:frontend-sa"
 
 # Give uami share-level rbac on storage
 STG_ACC="stportaldrupalprb01"
@@ -33,7 +33,7 @@ az aks update -g "$RG" -n "$AKS" --enable-oidc-issuer --enable-workload-identity
 az aks update -g "$RG" -n "$AKS" --enable-file-driver
 
 # namespace first
-kubectl create namespace drupal-frontend || true
+kubectl create namespace frontend || true
 
 # guardrails + storage + identity + app
 kubectl apply -f ns_quota.yaml
