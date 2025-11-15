@@ -1,4 +1,5 @@
 ## Prerequisites / Tools
+<img width="821" height="1390" alt="frontendxm-masked drawio (1)" src="https://github.com/user-attachments/assets/f301a101-3c38-4545-a681-c6da525abedc" />
 
 To use this repo you need:
 
