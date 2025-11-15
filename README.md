@@ -1,3 +1,5 @@
+visit my Medium article for a leaner explanation
+https://medium.com/@datatomas/aks-storage-demystified-inline-volumes-pv-pvc-file-shares-ingress-explained-clearly-7696645b257d
 ## Prerequisites / Tools
 <img width="821" height="1390" alt="frontendxm-masked drawio (1)" src="https://github.com/user-attachments/assets/f301a101-3c38-4545-a681-c6da525abedc" />
 
