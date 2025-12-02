@@ -19,4 +19,4 @@ spec:
           service:
             name: drupal-service
             port:
-              number: 80
+              number: 80 # change for 443 if you want https ingress
